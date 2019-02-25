@@ -17,23 +17,40 @@ namespace MZRTAD001
         std::cout<<"4: Grade student\n";
      
     }
+
 }
 
 int main (void)
 {
-    std::string optionSelected;
-
+    //create database object 
+    
+    std::string option_selected;
+    
     MZRTAD001::DisplayMenu();
-
-    std::getline(std::cin, optionSelected ,'\n');
+    
+    std::getline(std::cin, option_selected ,'\n');
 
     for(;;)
     {
-        if(optionSelected == "q" )
+       
+        switch(option_selected)
         {
-            break;
+            case "0": std::cout<<"function AddStudent() called";
+
+            case "1": std::cout<<"function ReadDatase() called";
+
+            case "2": std::cout<<"function SaveDatabase() called";
+
+            case "3": std::cout<<"function DisplayStudent() called";
+
+            case "4": std::cout<<"function GradeStudent() called";
+
+            case "q": std::cout<<"function Exit() called";
+
         }
     }
     
     return 0;
 }
+
+
