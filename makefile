@@ -9,8 +9,8 @@ BIN=./bin
 
 CC=g++
 CCFLAGS=-std=c++11
-SOURCES= StudentDBProgram.cpp
-OBJECTS= StudentDBProgram.o
+SOURCES= StudentDBProgram.cpp StudentRecord.cpp
+OBJECTS= StudentDBProgram.o StudentRecord.o
 
 main: $(OBJECTS)
 	$(CC) $(CCFLAGS) $(OBJECTS) -o StudentDBProgram $(LIBS)

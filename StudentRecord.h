@@ -1,14 +1,16 @@
-#ifndef DATABASE_H;
-#define DATABASE_H;
+#ifndef DATABASE_H 
+
+#define DATABASE_H 
 
 #include <string>
 #include <vector>
+using namespace std;
 
 namespace MZRTAD001{
 
     struct StudentRecord
     {
-        Name;
+        string Name;
         string Surname; 
         string StudentNumber;
         string ClassRecord;
@@ -25,3 +27,4 @@ namespace MZRTAD001{
     void exit(std::vector<StudentRecord> database);
 
 }
+#endif

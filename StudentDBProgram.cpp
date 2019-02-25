@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <StudentRecord.h>
+#include "StudentRecord.h"
 // Function Defintions
 
 void DisplayMenu(void);
@@ -26,7 +26,7 @@ namespace MZRTAD001
 int main (void)
 {
     //create database object 
-    std::vector<StudentRecord> database; 
+    std::vector<MZRTAD001::StudentRecord> database = {}; 
 
     std::string option_selected;
     
@@ -42,18 +42,27 @@ int main (void)
             std::cout<<"function AddStudent() called\n";
 
             std::string student_name;
-            std::cout<<"Enter the Student's Name";
+            std::cout<<"Enter the Student's Name: ";
             std::getline(std::cin, student_name);
-            std::cout<<"Student's Name: "<<student_name;
 
-            // std::cout<<"function AddStudent() called\n";
+            std::string student_surname;
+            std::cout<<"Enter the Student's Surame: ";
+            std::getline(std::cin, student_surname);
 
-            // std::cout<<"function AddStudent() called\n";
+            std::string student_number;
+            std::cout<<"Enter their Student Number: ";
+            std::getline(std::cin, student_number);
 
-            // std::cout<<"function AddStudent() called\n";
+            std::string class_record;
+            std::cout<<"Enter the Student's mark (s) seperated by spaces ";
+            std::getline(std::cin, class_record);
 
-            // std::cout<<"function AddStudent() called\n";
+            MZRTAD001::StudentRecord studentRecord = { student_name, 
+                                                       student_surname,
+                                                       student_number,
+                                                       class_record }; 
 
+            MZRTAD001::add_student(database,studentRecord);
             break;
         }
         else if (option_selected =="1")
