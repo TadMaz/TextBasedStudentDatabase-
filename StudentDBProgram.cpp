@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
-
+#include <StudentRecord.h>
 // Function Defintions
 
 void DisplayMenu(void);
+
+using namespace std;
 
 
 namespace MZRTAD001
@@ -15,6 +17,7 @@ namespace MZRTAD001
         std::cout<<"2: Save database\n";
         std::cout<<"3: Display given student data\n";
         std::cout<<"4: Grade student\n";
+        std::cout<<"Enter a number (or q to quit) and press return...\n";
      
     }
 
@@ -23,31 +26,63 @@ namespace MZRTAD001
 int main (void)
 {
     //create database object 
-    
+    std::vector<StudentRecord> database; 
+
     std::string option_selected;
     
     MZRTAD001::DisplayMenu();
     
-    std::getline(std::cin, option_selected ,'\n');
+    std::getline(std::cin, option_selected);
 
     for(;;)
     {
-       
-        switch(option_selected)
+      
+        if( option_selected =="0")
         {
-            case "0": std::cout<<"function AddStudent() called";
+            std::cout<<"function AddStudent() called\n";
 
-            case "1": std::cout<<"function ReadDatase() called";
+            std::string student_name;
+            std::cout<<"Enter the Student's Name";
+            std::getline(std::cin, student_name);
+            std::cout<<"Student's Name: "<<student_name;
 
-            case "2": std::cout<<"function SaveDatabase() called";
+            // std::cout<<"function AddStudent() called\n";
 
-            case "3": std::cout<<"function DisplayStudent() called";
+            // std::cout<<"function AddStudent() called\n";
 
-            case "4": std::cout<<"function GradeStudent() called";
+            // std::cout<<"function AddStudent() called\n";
 
-            case "q": std::cout<<"function Exit() called";
+            // std::cout<<"function AddStudent() called\n";
 
+            break;
         }
+        else if (option_selected =="1")
+        {
+            std::cout<<"function ReadDatase() called\n";
+            break;
+        }
+        else if (option_selected =="2")
+        {
+            std::cout<<"function SaveDatabase() called\n";
+            break;
+        } 
+        else if( option_selected =="3")
+        {
+            std::cout<<"function DisplayStudent() called\n";
+            break;
+        }
+        else if(option_selected =="4")
+
+        {
+            std::cout<<"function GradeStudent() called\n";
+            break;
+        }
+        else if(option_selected =="q")
+        {
+            std::cout<<"function Exit() called\n";
+            break;
+        }
+
     }
     
     return 0;

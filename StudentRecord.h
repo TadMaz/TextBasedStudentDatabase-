@@ -14,8 +14,8 @@ namespace MZRTAD001{
         string ClassRecord;
     };
 
-    void add_student(std::vector<StudentRecord> database);
-        
+    void add_student(std::vector<StudentRecord> database, StudentRecord student);
+
     void save_database(std::vector<StudentRecord> database);
 
     void display_student_data(std::vector<StudentRecord> database);
