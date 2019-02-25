@@ -1,28 +1,39 @@
 #include <iostream>
+#include <string>
 
 // Function Defintions
 
 void DisplayMenu(void);
 
+
 namespace MZRTAD001
 {
-
-    int main void
+     void DisplayMenu(void)
     {
-        int optionSelected;
-
-        DisplayMenu();
-
-        return 0;
+        std::cout<<"0: Add student\n";
+        std::cout<<"1: Read database\n";
+        std::cout<<"2: Save database\n";
+        std::cout<<"3: Display given student data\n";
+        std::cout<<"4: Grade student\n";
+     
     }
+}
 
-    void DisplayMenu()
+int main (void)
+{
+    std::string optionSelected;
+
+    MZRTAD001::DisplayMenu();
+
+    std::getline(std::cin, optionSelected ,'\n');
+
+    for(;;)
     {
-        cout<<"0: Add student";
-        cout<<"1: Read database";
-        cout<<"2: Save database";
-        cout<<"3: Display given student data";
-        cout<<"4: Grade student";
-        
+        if(optionSelected == "q" )
+        {
+            break;
+        }
     }
+    
+    return 0;
 }
