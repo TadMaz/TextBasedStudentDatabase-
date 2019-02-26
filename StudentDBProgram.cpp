@@ -72,6 +72,13 @@ int main (void)
             else if (option_selected =="1")
             {
                 std::cout<<"function ReadDatase() called\n";
+                database = MZRTAD001::read_database(database);
+
+                for(int i =0; i<database.size();i++){
+                    
+                    cout<< database[i].Name+" "+database[i].Surname+" "+database[i].StudentNumber+" "+database[i].ClassRecord;
+                }
+                
                 break;
             }
             else if (option_selected =="2")

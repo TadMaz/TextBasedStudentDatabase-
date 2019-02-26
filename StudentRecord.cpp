@@ -1,6 +1,7 @@
 #include "StudentRecord.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 namespace MZRTAD001
 {
@@ -9,15 +10,57 @@ namespace MZRTAD001
     {
         database.push_back(student);
         std::cout<< "Student Added to Database\n";
-        std::cout<<database.size();
+    
         return database;
+    }
+
+    std::vector<StudentRecord> read_database(std::vector<StudentRecord> database)
+    {
+        ifstream datastream("DATABASE.txt");
+
+        StudentRecord student;
+
+        if(!datastream)
+        {
+            std::cout<<"Database file could not be opened.";
+            return database;
+        }
+
+        std::string entry;
+        std::string line = entry, name, surname, student_no, class_record,value;
+
+        while (std::getline(datastream, entry))
+        {
+            istringstream iss(entry);
+
+            while (!iss.eof())
+            {
+                iss>>name;
+                iss>>surname;
+                iss>>student_no;
+                class_record = "";
+
+                while(!iss.eof()){
+
+                    iss>>value;
+                    class_record += value+" ";     
+                }
+
+                iss>>class_record;
+            }
+
+            student = {name, surname, student_no, class_record};
+            database.push_back(student);
+        }
+        return database;
+
     }
 
     void save_database(std::vector<StudentRecord> database)
     {
         //iterate through vector and write each item to text file
         //**only add element if it does not exist in database.
-        //ofstream dataStream;
+        //append to exiting file.
 
         if (database.empty())
         {
@@ -36,7 +79,7 @@ namespace MZRTAD001
                 return;
             }
 
-            dataStream <<record.Name + " "<<record.Surname+" "<< record.StudentNumber+" "<<record.StudentNumber+"\n";
+            dataStream <<record.Name + " "<<record.Surname+" "<< record.StudentNumber+" "<<record.ClassRecord+"\n";
             
             database.pop_back();
         }
@@ -45,7 +88,12 @@ namespace MZRTAD001
         
     }
 
-    void display_student_data(std::vector<StudentRecord> database);
+    void display_student_data(std::vector<StudentRecord> database)
+    {
+        //open file for reading 
+        string filename = "DATABASE.txt";
+
+    }
 
     void grade_student(std::vector<StudentRecord> database);
 
