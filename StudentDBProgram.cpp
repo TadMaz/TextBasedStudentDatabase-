@@ -72,13 +72,13 @@ int main (void)
             else if (option_selected =="1")
             {
                 std::cout<<"function ReadDatase() called\n";
-                database = MZRTAD001::read_database(database);
+                database = MZRTAD001::read_database();
 
                 for(int i =0; i<database.size();i++){
                     
                     cout<< database[i].Name+" "+database[i].Surname+" "+database[i].StudentNumber+" "+database[i].ClassRecord;
                 }
-                
+
                 break;
             }
             else if (option_selected =="2")
@@ -90,6 +90,13 @@ int main (void)
             else if( option_selected =="3")
             {
                 std::cout<<"function DisplayStudent() called\n";
+
+                std::string student_number;
+                std::cout<<"Enter the Student Number: ";
+                std::getline(std::cin, student_number);
+
+                MZRTAD001::display_student_data(student_number);
+
                 break;
             }
             else if(option_selected =="4")

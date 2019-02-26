@@ -18,11 +18,11 @@ namespace MZRTAD001{
 
     std::vector<StudentRecord> add_student(std::vector<StudentRecord> database, StudentRecord student);
 
-    std::vector<StudentRecord> read_database(std::vector<StudentRecord> database);
+    std::vector<StudentRecord> read_database();
 
     void save_database(std::vector<StudentRecord> database);
 
-    void display_student_data(std::vector<StudentRecord> database);
+    void display_student_data(std::string student_no);
 
     void grade_student(std::vector<StudentRecord> database);
 
