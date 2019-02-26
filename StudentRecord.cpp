@@ -92,10 +92,11 @@ namespace MZRTAD001
     {
         //read database
         std::vector<StudentRecord> database = read_database();
-        std::string data_id;
-        //query database 
 
-        //convert given student number to lower
+        //query database 
+        std::string data_id;
+       
+        //convert given student number to lower case
         std::transform(data.begin(), data.end(), data_id.begin(), ::tolower);
         string student_no = data_id;
 
@@ -114,11 +115,54 @@ namespace MZRTAD001
             }
 
         }
-        std::cout<<"Student not found in database";
+        std::cout<<"Student not found in database."<<endl;
         
     }
 
-    void grade_student(std::vector<StudentRecord> database);
+    void grade_student(std::string data){
 
-    void exit(std::vector<StudentRecord> database);
+        //read database
+        std::vector<StudentRecord> database = read_database();
+
+        //query database 
+        std::string data_id;
+       
+        //convert given student number to lower case
+        std::transform(data.begin(), data.end(), data_id.begin(), ::tolower);
+        string student_no = data_id;
+
+        for (int i = 0;i<database.size();i++){
+
+            string entry_id;
+            std::transform(entry_id.begin(),entry_id.end(), entry_id.begin(), ::tolower);
+
+            if(student_no == entry_id ){
+                
+                istringstream iss(database[i].ClassRecord);
+                int value;
+                int total;
+                int no_of_marks;
+
+                while(!iss.eof()){
+
+                    iss>>value;
+                    total +=value;
+                    no_of_marks++;
+                }
+
+                std::cout<<"Student Name : "<<database[i].Name<<endl;
+                std::cout<<"Student Surname : "<<database[i].Surname<<endl;
+                std::cout<<"Student Number : "<<database[i].StudentNumber<<endl;
+                std::cout<<"Student Class average : "<<total/no_of_marks<<endl;
+                return;
+            }
+
+        }
+        std::cout<<"Student not found in database."<<endl;
+    }
+
+    void exit(){
+        
+        exit();
+    }
 }

@@ -24,11 +24,9 @@ namespace MZRTAD001{
 
     void display_student_data(std::string student_no);
 
-    void grade_student(std::vector<StudentRecord> database);
+    void grade_student(std::string student_no);
 
-    void exit(std::vector<StudentRecord> database);
-
-    bool is_in_database(std::string studentID);
+    void exit();
 
 }
 #endif

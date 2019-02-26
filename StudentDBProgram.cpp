@@ -103,11 +103,18 @@ int main (void)
 
             {
                 std::cout<<"function GradeStudent() called\n";
+                std::string student_number;
+                std::cout<<"Enter the Student Number: ";
+                std::getline(std::cin, student_number);
+
+                MZRTAD001::grade_student(student_number);
+
                 break;
             }
             else if(option_selected =="q")
             {
                 std::cout<<"function Exit() called\n";
+                MZRTAD001::exit();
                 break;
             }
 
