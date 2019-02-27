@@ -44,10 +44,10 @@ namespace MZRTAD001
                 while(!iss.eof()){
 
                     iss>>value;
-                    class_record += value+" ";     
+                    class_record += value+" ";    
                 }
 
-                iss>>class_record;
+                //iss>>class_record;
             }
 
             student = {name, surname, student_no, class_record};
@@ -62,34 +62,35 @@ namespace MZRTAD001
         //**only add element if it does not exist in database.
         //append to exiting file.
 
+
         if (database.empty())
         {
-            std::cout<<"Database is up to date. No records have been added.";
+            std::cout<<"Database is up to date. No records have been added."<<endl;
         } 
 
-        ofstream dataStream("DATABASE.txt");
+        ofstream dataStream("DATABASE.txt",std::ios::app);
 
+        if(!dataStream)
+        {
+            std::cout<< "Database File could not be opened"<<endl;
+            return;
+        }
+        
         while(!database.empty())
         {
-            MZRTAD001:StudentRecord record = database.back();
             
-            if(!dataStream)
-            {
-                std::cout<< "Database File could not be opened.\n";
-                return;
-            }
+            MZRTAD001:StudentRecord record = database.back();
 
-            dataStream <<record.Name + " "<<record.Surname+" "<< record.StudentNumber+" "<<record.ClassRecord+"\n";
+            dataStream <<record.Name + " "<<record.Surname+" "<< record.StudentNumber+" "<<record.ClassRecord<<endl;
             
             database.pop_back();
         }
         dataStream.close();
-        std::cout<< "Database saved.\n";
+        std::cout<< "Database saved."<<endl;
         
     }
 
-    void display_student_data(std::string data)
-    {
+    void display_student_data(std::string data){
         //read database
         std::vector<StudentRecord> database = read_database();
 
@@ -153,7 +154,7 @@ namespace MZRTAD001
                 std::cout<<"Student Name : "<<database[i].Name<<endl;
                 std::cout<<"Student Surname : "<<database[i].Surname<<endl;
                 std::cout<<"Student Number : "<<database[i].StudentNumber<<endl;
-                std::cout<<"Student Class average : "<<total/no_of_marks<<endl;
+                std::cout<<"Student Class Average : "<<total/no_of_marks<<endl;
                 return;
             }
 
@@ -162,7 +163,7 @@ namespace MZRTAD001
     }
 
     void exit(){
-        
+
         exit();
     }
 }

@@ -36,8 +36,6 @@ int main (void)
     
         std::getline(std::cin, option_selected);
 
-        std::cout<<"Staged records "<<database.size();
-
         for(;;)
         {
       
@@ -74,9 +72,12 @@ int main (void)
                 std::cout<<"function ReadDatase() called\n";
                 database = MZRTAD001::read_database();
 
+                cout<<"The following record(s) have been read from the database"<<endl;
+
                 for(int i =0; i<database.size();i++){
                     
-                    cout<< database[i].Name+" "+database[i].Surname+" "+database[i].StudentNumber+" "+database[i].ClassRecord;
+                    cout<< database[i].Name+" "+database[i].Surname+" "+database[i].StudentNumber+" "+
+                           database[i].ClassRecord<<endl;
                 }
 
                 break;
@@ -120,7 +121,6 @@ int main (void)
 
         }
 
-        
     }
     
     return 0;

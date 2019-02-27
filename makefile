@@ -30,3 +30,5 @@ clean:
 	rm main
 	rm incl.defs
 	rm *.tar.gz
+tar:
+tar -zcvf MZRTAD001.tar.gz makefile README.md *.cpp *.h .git .gitignore
